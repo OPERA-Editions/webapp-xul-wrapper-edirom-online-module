@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://edirom-online/content/legalNotice/legalNotice.css" type="text/css"?>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml" id="legalNotice-dialog" orient="vertical"
+	buttons="accept" buttonlabelaccept="Close" ondialogaccept="return true">
+
+	<script type="application/javascript" src="../ui/helpers.js"/>
+	
+	
+
+	<vbox flex="1" style="overflow:auto; background-color:white; padding: 5px;" width="400"
+		height="220">
+
+		<description>Legal Notice – Your Project</description>
+		
+		<description>Legal Notice</description>
+
+		<description>In collaboration with <html:span class="url" onclick="gotoUrl('http://www.edirom.de/')">Edirom – Digitale Musikedition</html:span>, a project funded by the
+			Deutsche Forschungsgemeinschaft</description>
+	</vbox>
+
+</dialog>

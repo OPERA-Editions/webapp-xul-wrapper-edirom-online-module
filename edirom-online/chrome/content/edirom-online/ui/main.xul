@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xul-overlay href="chrome://edirom-online/content/init.xul"?>
+<?xul-overlay href="chrome://edirom-online-platform/content/ui/menuOverlay.xul"?>
+
+<!DOCTYPE window [
+	<!ENTITY % globalDTD SYSTEM "chrome://global/locale/global.dtd"> %globalDTD;
+	<!ENTITY % charsetDTD SYSTEM "chrome://global/locale/charsetOverlay.dtd" > %charsetDTD;
+	<!ENTITY % textcontextDTD SYSTEM "chrome://global/locale/textcontext.dtd" > %textcontextDTD;
+	<!ENTITY % standaloneDTD SYSTEM "chrome://edirom-online/locale/menus.dtd" > %standaloneDTD;
+	<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd" > %brandDTD;
+]>
+
+<window name="main-window" id="main-window"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	windowtype="navigator:browser" 
+	title="&brandShortName;"
+	width="1040" height="700"
+	fullscreenbutton="true"
+	persist="screenX screenY"> 
+	<script type="application/javascript" src="main.js"/>
+	<script type="application/javascript" src="helpers.js"/>
+	<script type="application/javascript" src="chrome://global/content/globalOverlay.js"/>
+	<script type="application/javascript" src="chrome://global/content/contentAreaUtils.js"/>
+	<script type="application/javascript" src="chrome://global/content/inlineSpellCheckUI.js"/>
+	
+	<commandset id="mainCommandSet">
+		<!--FILE-->
+		<command id="cmd_quitApplication" oncommand="window.close();"/>
+		<command id="cmd_close" oncommand="window.close();"/>
+	</commandset>
+	
+	<keyset id="mainKeyset">
+		<key id="key_close" key="&closeCmd.key;" command="cmd_close" modifiers="accel"/>
+	</keyset>
+	<keyset id="editMenuKeys"/>
+	
+	<popup id="contentAreaContextMenu">
+		<menuitem id="context-undo"
+			label="&undoCmd.label;"
+			accesskey="&undoCmd.accesskey;"
+			command="cmd_undo"/>
+		<menuseparator id="context-sep-undo"/>
+		<menuitem id="context-cut"
+			label="&cutCmd.label;"
+			accesskey="&cutCmd.accesskey;"
+			command="cmd_cut"/>
+		<menuitem id="context-copy"
+			label="&copyCmd.label;"
+			accesskey="&copyCmd.accesskey;"
+			command="cmd_copy"/>
+		<menuitem id="context-paste"
+			label="&pasteCmd.label;"
+			accesskey="&pasteCmd.accesskey;"
+			command="cmd_paste"/>
+		<menuitem id="context-delete"
+			label="&deleteCmd.label;"
+			accesskey="&deleteCmd.accesskey;"
+			command="cmd_delete"/>
+		<menuseparator id="context-sep-paste"/>
+		<menuitem id="context-selectall"
+			label="&selectAllCmd.label;"
+			accesskey="&selectAllCmd.accesskey;"
+			command="cmd_selectAll"/>
+	</popup>
+	<toolbox id="navigator-toolbox" class="toolbox-top" mode="icons" defaultmode="icons">
+		<!-- Menu -->
+		<toolbar type="menubar" id="toolbar-menubar" class="chromeclass-menubar" customizable="true"
+			defaultset="menubar-items"
+			mode="icons" iconsize="small" defaulticonsize="small"
+			context="toolbar-context-menu">
+			<toolbaritem id="menubar-items" align="center">
+				<menubar id="main-menubar"
+					style="border:0px;padding:0px;margin:0px;-moz-appearance:none">
+					<menu id="fileMenu" label="&fileMenu.label;" accesskey="&fileMenu.accesskey;">
+						<menupopup id="menu_FilePopup">
+							<!--
+							<menuitem id="menu_close" label="&closeCmd.label;" key="key_close"
+									accesskey="&closeCmd.accesskey;" command="cmd_close"/>
+						-->
+							<menuitem id="reloadEdition"
+								accesskey="&reloadEdition.accesskey;"
+								key="key_reloadEdition"
+								label="&reloadEdition.label;"
+								oncommand="MainUI.reloadEdition();"/>
+							<menuitem id="restartProgram"
+								label="&restartProgram.label;"
+								oncommand="MainUI.restartProgram();"/>
+						</menupopup>
+					</menu>
+					
+					<menu id="helpMenu"
+						label="&helpMenu.label;"
+						accesskey="&helpMenu.accesskey;">
+						<menupopup id="menu_HelpPopup">
+							<menuitem id="checkForUpdates"
+								accesskey="&helpCheckForUpdates.accesskey;"
+								label="&helpCheckForUpdates.label;"
+								oncommand="MainUI.checkForUpdates();"/>
+							<menuitem id="aboutName"
+								accesskey="&aboutProduct.accesskey;"
+								label="&aboutProduct.label;"
+								oncommand="MainUI.openAboutDialog();"/>
+							<menuitem id="ediromManual"
+								label="&ediromManual.label;"
+								oncommand="MainUI.openManual();"/>
+						</menupopup>
+					</menu>
+				</menubar>
+			</toolbaritem>
+		</toolbar>
+	</toolbox>
+	<deck selectedIndex="0" flex="1" align="center" id="startWindow" style="background-color: white;">
+		<vbox id="container" flex="1" style="overflow:auto;">
+			<stack>
+				<box id="windowBackground" top="0" left="0" height="700" style="background-image:url('chrome://edirom-online/content/ui/edirom-Hintergrund_small.png'); background-repeat:repeat-x;"></box>
+				<box id="windowForeground" top="0" left="0" height="700">
+					<stack>
+						<image src="chrome://edirom-online/content/ui/edirom-Vordergrund.png" top="0" left="0" width="933" height="700"/>
+						<box style="cursor: pointer;" top="565" left="360" width="520" height="70" onclick="MainUI.openEdition()"></box>
+						<!--<box style="cursor: pointer;" top="581" left="210" width="143" height="25" onclick="MainUI.openManual()"></box>
+						<box style="cursor: pointer;" top="581" left="375" width="135" height="25" onclick="MainUI.openLicence()"></box>
+						<box style="cursor: pointer;" top="581" left="533" width="100" height="25" onclick="MainUI.openLegalNotice()"></box>
+						--><box top="699" left="932" width="1" height="1"></box>
+					</stack>
+				</box>
+			</stack>
+		</vbox>
+		<browser type="content-primary" id="webapp" src="chrome://edirom-online/content/index.html" flex="1" width="100%" height="100%"/>
+	</deck>
+</window>

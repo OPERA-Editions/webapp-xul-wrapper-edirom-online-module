@@ -1,0 +1,1 @@
+wscript .\scripts\startServer.vbs //B //Nologo

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://edirom-online/content/licence/licence.css" type="text/css"?>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml" id="licence-dialog" orient="vertical" buttons="accept"
+	buttonlabelaccept="Close" ondialogaccept="return true">
+
+	<script type="application/javascript" src="../ui/helpers.js"/>
+
+	<vbox flex="1" style="overflow:auto; background-color:white; padding: 5px;" width="400"
+		height="220">
+		<label value="Licence Agreement" style="font-size:2em; margin-left:-1px; margin-bottom:5px;"/>
+		<description>Your Licence Agreement</description>
+		
+		<label value="Edirom Online" style="font-size:1.3em; margin-left:-1px; margin-bottom:5px;margin-top:15px;"/>
+		<description>The present software (Edirom Online) is being published under the terms of the
+			GNU General Public License, version 3. The source code of the software is available
+			online at <html:span class="url"
+				onclick="gotoUrl('https://github.com/Edirom/Edirom-Online')"
+				>https://github.com/Edirom/Edirom-Online</html:span>.</description>
+
+		<description>The present software employs the following program libraries and their
+			dependencies (not listed):</description>
+
+		<description>* ACE (<html:span class="url"
+			onclick="gotoUrl('http://ace.c9.io')"
+			>http://ace.c9.io</html:span>): BSD</description>
+		
+		<description>* Digilib 1.8.3 (<html:span class="url"
+			onclick="gotoUrl('http://digilib.berlios.de/')"
+			>http://digilib.berlios.de/</html:span>): GNU General Public License, version 2.0</description>
+
+		<description>* eXist 2.0 (<html:span class="url"
+			onclick="gotoUrl('http://exist-db.org')"
+			>http://exist-db.org</html:span>): GNU Lesser General Public License, version
+			2.1</description>
+
+		<description>* ExtJS 4.0.7 (<html:span class="url"
+			onclick="gotoUrl('http://www.sencha.com/')"
+			>http://www.sencha.com/</html:span>): GNU General Public License, version 3</description>
+
+		<description>* Jetty 7.3.0 (<html:span class="url"
+			onclick="gotoUrl('http://www.eclipse.org/jetty/')"
+			>http://www.eclipse.org/jetty/</html:span>): Apache License Version 2.0</description>
+		
+		<description>* Raphaël (<html:span class="url"
+			onclick="gotoUrl('http://raphaeljs.com/')"
+			>http://raphaeljs.com/</html:span>): The MIT License</description>
+		
+		<description>* TEI Stylesheets (<html:span class="url"
+			onclick="gotoUrl('https://github.com/TEIC/Stylesheets')"
+			>https://github.com/TEIC/Stylesheets</html:span>): </description>
+
+		<description>* webapp-xul-wrapper (<html:span class="url"
+			onclick="gotoUrl('https://github.com/neam/webapp-xul-wrapper')"
+			>https://github.com/neam/webapp-xul-wrapper</html:span>): GNU Affero
+			General Public License, version 3</description>
+
+		<description>* XULRunner (<html:span class="url"
+			onclick="gotoUrl('https://developer.mozilla.org/en-US/docs/XULRunner')"
+			>https://developer.mozilla.org/en-US/docs/XULRunner</html:span>): Mozilla Public License 2.0</description>
+
+		<description style="margin-top:10px;">The corresponding license agreements are included in the folder "Licences" on
+			this data medium.</description>
+	</vbox>
+
+</dialog>

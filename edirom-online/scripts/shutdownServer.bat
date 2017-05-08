@@ -1,0 +1,1 @@
+wscript .\scripts\shutdownServer.vbs //B //Nologo

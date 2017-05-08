@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<overlay id="include"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script src="jetty.js"/>
+	<script src="init.js"/>
+
+</overlay>

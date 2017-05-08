@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Edirom Online</title>
+        <script src="jquery-2.0.3.min.js"></script>
+        <script type="text/javascript">
+    <!--
+                function checkServer() {
+                    $.ajax({
+                        url: "http://127.0.0.1:19099/exist/apps/EdiromOnline/index.html",
+                        success: function (response) {
+                            window.location = 'http://127.0.0.1:19099/exist/apps/EdiromOnline/index.html';
+                        },
+                        error: function (xhr, status) {
+                            window.setTimeout(checkServer, 500);
+                        }
+                    });
+                }
+                
+                function animateLoading() {
+                    var text = $('#status').text();
+                    if (text.endsWith('...'))
+                        $('#status').text('Loading');
+                    else
+                        $('#status').text(text + '.');
+                    
+                    window.setTimeout(animateLoading, 300);
+                }
+                //-->
+        </script>
+    </head>
+    <body onload="checkServer();animateLoading();">
+        <div style="background-color: rgba(0, 0, 0, 0.2); position: absolute; top:0; bottom: 0; left: 0; right: 0;"></div>
+        <div style="width: 60px; height: 20px; position: absolute; top:0; bottom: 0; left: 0; right: 0; margin: auto;">
+            <span id="status">Loading...</span>
+        </div>
+    </body>
+</html>

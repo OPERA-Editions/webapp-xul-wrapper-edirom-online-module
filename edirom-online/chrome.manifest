@@ -1,0 +1,6 @@
+content	edirom-online				chrome/content/edirom-online/
+content	edirom-online-platform		chrome/content/edirom-online-platform/		platform
+
+locale	edirom-online	en-US		chrome/locale/en-US/edirom-online/
+
+skin		edirom-online	default		chrome/skin/default/edirom-online/

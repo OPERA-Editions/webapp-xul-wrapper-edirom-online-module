@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://edirom-online/skin/about.css" type="text/css"?>
+<!DOCTYPE window [
+	<!ENTITY % aboutDTD SYSTEM "chrome://edirom-online/locale/about.dtd"> %aboutDTD;
+	<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd" > %brandDTD;
+	<!ENTITY % standaloneDTD SYSTEM "chrome://edirom-online/locale/menus.dtd" > %standaloneDTD;
+]>
+
+<dialog
+	id="app-about"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	orient="vertical"
+	buttons=","
+	onload="moveToAlertPosition(); sizeToContent();">
+	
+	<script type="application/javascript" src="helpers.js"/>
+	
+	<vbox id="aboutcontent">
+		<label id="name" value="&brandShortName;"/>
+		<label id="version" value="&vendorShortName; and &softwareName; (&app.about.versionLabel; &brandVersion;)"/>
+		<button label="&helpCheckForUpdates.label;" oncommand="checkForUpdates();"/>
+		<hbox>
+			<label class="app-text-link url" href="&vendorUrl;" value="&vendorUrl;" onclick="gotoUrl('&vendorUrl;')"/>
+		</hbox>
+		<label id="copyright" value="&logoCopyright;"/>
+	</vbox>
+</dialog>
